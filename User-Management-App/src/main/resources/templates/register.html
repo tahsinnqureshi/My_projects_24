@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    
+    
+</head>
+<body style="background-color: #b70655;">
+
+<div class="container">
+<br>  
+
+<div class="row justify-content-center">
+<div class="col-md-6">
+<div style="background-color:#e9ecef;" class="card">
+<header class="card-header">
+	<a href="/" class="float-right btn btn-outline-primary mt-1">Log in</a>
+	<h4 class="card-title mt-2">Sign up</h4><br>
+	<p th:text="${msg}" class="text-success"></p>
+	<p th:text="${cmsg}" class="text-danger"></p>
+</header>
+<article class="card-body">
+<form  th:action="@{/Saved-user}" th:object="${user}" method="post">
+	<div class="form-row">
+		<div class="col form-group">
+			<label>First name </label>   
+		  	<input type="text"th:field="*{fName}" class="form-control" placeholder=""/>
+		  	<input type="hidden" th:field="*{id}"class="form-control" placeholder=""/>
+		</div> <!-- form-group end.// -->
+		<div class="col form-group">
+			<label>Last name</label>
+		  	<input type="text"th:field="*{lName}" class="form-control" placeholder=" ">
+		</div> <!-- form-group end.// -->
+	</div> <!-- form-row end.// -->
+	<div class="form-group">
+		<label>Email address</label>
+		<input type="email"th:field="*{email}" class="form-control" placeholder="">
+		<small class="form-text text-muted">We'll never share your email with anyone else.</small>
+	</div> <!-- form-group end.// -->
+	<div class="form-group">
+			<label class="form-check form-check-inline">
+		  <input class="form-check-input" type="radio" name="gender" value="option1"th:field="*{gender}">
+		  <span class="form-check-label"> Male </span>
+		</label>
+		<label class="form-check form-check-inline">
+		  <input class="form-check-input" type="radio" name="gender" value="option2"th:field="*{gender}">
+		  <span class="form-check-label"> Female</span>
+		</label>
+	</div> <!-- form-group end.// -->
+    <div class="form-row">
+		<div class="col form-group">
+			<label>Phone No </label>   
+		  	<input type="text"th:field="*{phno}" class="form-control" placeholder="">
+		</div> <!-- form-group end.// -->
+		<div class="col form-group">
+			<label>DOB</label>
+		  	<input type="date"th:field="*{dob}" class="form-control" placeholder=" ">
+		</div> <!-- form-group end.// -->
+	</div> <!-- form-row end.// -->
+    <div class="form-group ">
+        <label>Country</label>
+        <select id="inputCountry" class="form-control" th:field="*{country}">
+          <option value=""> Choose...</option>
+            <option value="India">India</option>
+            <option value="Us">Us</option>
+        </select>
+      </div> <!-- form-group end.// -->
+	<div class="form-row">
+		<div class="form-group col-md-6">
+		  <label>State</label>
+		  <select id="inputState" class="form-control" th:field="*{state}">
+		    <option value=""> Choose...</option>
+		      <option value="Telangnaa">Telangnaa</option>
+		      <option value="Madhya pradesh">Madhya pradesh</option>
+		  </select>
+		</div> <!-- form-group end.// -->
+		<div class="form-group col-md-6">
+		  <label>City</label>
+		  <select id="inputCity" class="form-control"th:field="*{city}">
+		    <option value=""> Choose...</option>
+		      <option value="Hyderabad">Hyderabad</option>
+		      <option value="Nizamabad">Nizamabad</option>
+		      <option value="Khandwa">Khandwa</option>
+		      <option value="Indore">Indore</option>
+		  </select>
+		</div> <!-- form-group end.// -->
+	</div> <!-- form-row.// -->
+    <div class="form-group">
+        <button type="reset" class="btn btn-primary btn-block"> Reset  </button>
+    </div> <!-- form-group// --> 
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block"> Register  </button>
+    </div> <!-- form-group// -->      
+    <small class="text-muted">By clicking the 'Sign Up' button, you confirm that you accept our <br> Terms of use and Privacy Policy.</small>                                          
+</form>
+</article> <!-- card-body end .// -->
+<div class="border-top card-body text-center">Have an account? <a href="/">Log In</a></div>
+</div> <!-- card.// -->
+</div> <!-- col.//-->
+
+</div> <!-- row.//-->
+
+
+</div> 
+<!--container end.//-->
+
+<br><br>
+
+</body>
+</html>
